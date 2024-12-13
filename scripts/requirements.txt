@@ -1,9 +1,2 @@
-logging
-random
-os
-json
-google-cloud-bigquery
-re
-time
-argparse
-kafka-python
+kafka
+google.cloud
