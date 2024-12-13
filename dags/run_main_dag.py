@@ -21,5 +21,5 @@ with DAG(
 
     run_main_with_venv = BashOperator(
         task_id='run_main_script_with_dependencies',
-        bash_command='pip install kafka google.cloud && python /opt/airflow/dags/repo/scripts/main.py --one',
+        bash_command='pip install kafka-python google-cloud-bigquery && python /opt/airflow/dags/repo/scripts/main.py --one',
     )
