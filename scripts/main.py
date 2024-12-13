@@ -131,7 +131,7 @@ def post_kafka(transformed_post, kafka_host):
 
 def main(multiple, kafka_host):
     # Load the post from the JSON file
-    data_filepath = "./data/movies-stackexchange/json/posts.json"
+    data_filepath = "../data/movies-stackexchange/json/posts.json"
     log.info(data_filepath)
     log.info(os.getcwd())
     with open(data_filepath, "r") as f:
