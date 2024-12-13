@@ -13,23 +13,13 @@ default_args = {
 with DAG(
     'run_main_dag',
     default_args=default_args,
-    description='Run main.py with --one argument and install dependencies',
+    description='Run main.py with virtual environment and dependencies',
     schedule_interval=None,  # Manual trigger
     start_date=datetime(2023, 1, 1),
     catchup=False,
 ) as dag:
 
-    # Task to install dependencies
-    install_dependencies = BashOperator(
-        task_id='install_dependencies',
-        bash_command='pip install -r /opt/airflow/dags/repo/scripts/requirements.txt',
+    run_main_with_venv = BashOperator(
+        task_id='run_main_script_with_dependencies',
+        bash_command='pip install kafka google.cloud && python /opt/airflow/dags/repo/scripts/main.py --one',
     )
-
-    # Task to run the main Python script
-    run_main = BashOperator(
-        task_id='run_main_script',
-        bash_command='python /opt/airflow/dags/repo/scripts/main.py --one',
-    )
-
-    # Set task dependencies
-    install_dependencies >> run_main
