@@ -21,5 +21,5 @@ with DAG(
 
     run_main = BashOperator(
         task_id='run_main_script',
-        bash_command='python /opt/airflow/scripts/main.py --one',
+        bash_command='python /opt/airflow/dags/repo/scripts/main.py --one',
     )
