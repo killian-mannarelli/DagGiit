@@ -69,7 +69,7 @@ def save_post_to_json(post, filepath):
 
 def post_bigquery(transformed_post):
     # Authenticate with Google Cloud and initialize the BigQuery client
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/opt/airflow/dags/repo/dags/service-account.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/tmp/service-account.json"
     client = bigquery.Client()
 
     project_id = client.project
