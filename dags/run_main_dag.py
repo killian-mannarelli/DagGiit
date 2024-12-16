@@ -14,7 +14,7 @@ with DAG(
     'run_main_dag',
     default_args=default_args,
     description='Run main.py with Kafka host from secret',
-    schedule_interval=timedelta(seconds=30)
+    schedule_interval=timedelta(seconds=30),
     start_date=datetime(2023, 1, 1),
     catchup=False,
 ) as dag:
